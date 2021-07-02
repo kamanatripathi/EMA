@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding text-center>
+  <img src="assets/login_colo.svg">
+  <div  class="form">
+    <div text-center>
+      <h3 class="ion-text-center" >Login</h3>
+    </div>
+      <ion-list margin-top margin-bottom>
+        <form [formGroup]="loginForm" >
+          <ion-item lines=none>
+            <ion-input type="text" tabindex="20" (keyup.enter)="moveFocus(b)" placeholder="Email" formControlName="email" required></ion-input>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        </ion-item>
+
+        <ion-item lines=none>
+            <ion-input [type]="passwordType" #b placeholder="Password" formControlName="password" required></ion-input>
+        </ion-item>
+        <br>
+        <br><br>
+    
+        <ion-button margin-bottom mode="ios" color="dark" expand="block"  (click)="login()">Login</ion-button>
+
+        </form>
+    </ion-list >
+    <p class="register-text" (click)="goRegister()">Dont have account?<a> Register</a> </p>
+
+</div>
+
 </ion-content>
+

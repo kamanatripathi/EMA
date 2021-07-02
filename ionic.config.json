@@ -1,5 +1,7 @@
 {
   "name": "EMA",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

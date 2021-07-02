@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form   >
+      <ion-item>
+        <ion-label position="floating">Task name</ion-label>
+        <ion-input  [(ngModel)]="data.task_name" name= "task_name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Priority</ion-label>
+        <ion-input  [(ngModel)]="data.priority"  name= "priority" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Assigned to</ion-label>
+        <ion-input  [(ngModel)]="data.assigned_to"  name= "assigned_to" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button class="submit-btn"  mode="ios" color="dark"  expand="block" (click)="updateData()">
+            Update
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

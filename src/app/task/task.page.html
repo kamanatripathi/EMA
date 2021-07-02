@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your Task</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="task" (ngSubmit)="storeData()">
+      <ion-label position="floating">Task name</ion-label>
+      <ion-input type="text" placeholder="taskname" formControlName="task_name" required></ion-input>
+      <br>
+      <ion-label position="floating">Priority</ion-label>
+      <ion-input type="text" placeholder="Priority" formControlName="priority" required></ion-input>
+      <br>
+      <ion-label position="floating">Assigned to : </ion-label> 
+     <ion-input type="text" placeholder="Assigned" formControlName="assigned" required></ion-input>
+  </form>
+</ion-list>
+<ion-button class="submit-btn"  mode="ios" color="dark"  expand="block"  (click)="add()" >Add task</ion-button>
+
+<ion-list>
+  <ion-list-header>
+    Task
+  </ion-list-header>
+
+   <ion-item lines="inset" *ngFor="let data of items">
+    <ion-label>
+      <h2>{{data.task_name}}</h2>
+      <h5>{{data.priority}}</h5>
+      <h5>{{data.assigned_to}}</h5>
+    </ion-label>
+
+    <div class="item-note" item-end>
+      <ion-icon name="trash" style="zoom:2.0" (click)="delete(data.id)"></ion-icon>
+      <ion-icon name="create" style="zoom:2.0" [routerLink]="['/update-task/', data.id]"></ion-icon>        
+    </div>
+  </ion-item>
+</ion-list>
+</ion-content>

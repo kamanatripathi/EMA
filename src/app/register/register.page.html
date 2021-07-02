@@ -1,0 +1,32 @@
+<ion-content padding text-center>
+  <img src="assets/signin.svg">
+
+  <div  class="form">
+        <div text-center>
+      <h3 class="ion-text-center">Registration</h3>
+    </div>
+      <ion-list>
+        <form [formGroup]="registerform" (ngSubmit)="save()">
+          <ion-item lines=none>
+            <ion-input type="text" placeholder="Full Name" formControlName="full_name" required></ion-input>
+          </ion-item>
+        <br>
+        <ion-item lines=none>
+          <ion-input type="text" placeholder="Email" formControlName="email" required></ion-input>
+       </ion-item>
+      <br>
+      <ion-item  lines=none>
+        <ion-input [type]="passwordType"  type="password" placeholder="Password" formControlName="password" required></ion-input>
+     </ion-item>
+     <br>
+     <ion-item lines=none>
+      <ion-input (keyup.enter)="register()" placeholder="Mobile number" type="text" inputmode="numeric" maxlength="10" formControlName="mobile_no" required></ion-input>
+     </ion-item>   
+      <br>
+      <ion-button  class="submit-btn"  mode="ios" color="dark"  expand="block" (click)="register()">Register</ion-button>
+      <br>
+    </form>
+  </ion-list>
+      <p class="register-text" (click)="goLogin()"> You have a account ?<a> Login</a> </p>
+  </div>
+</ion-content>
